@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Doctor_MiniRoom</string>
+    <!-- 加载状态相关 -->
+    <string name="view_empty">没有数据~</string>
+    <string name="view_network_error">网络异常~</string>
+    <string name="view_no_network">没有网络~</string>
+
+    <string name="loading">加载中</string>
+    <string name="load_success">加载成功</string>
+    <string name="load_fail">加载失败</string>
+    <!--倒计时控件时间格式-->
+    <string name="count_down_default_format">mm:ss</string>
+    <!--视频中检测项目-->
+    <string name="mouth_test_str">口腔</string>
+    <string name="auscultation_test_str">听诊</string>
+    <string name="drug_test_str">药品</string>
+    <string name="detection_test_str">检测</string>
+    <string name="patient_info_str">患者</string>
+    <string name="hang_up_str">挂断</string>
+</resources>

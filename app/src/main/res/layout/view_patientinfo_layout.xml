@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/down_btn"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp30"
+        android:src="@mipmap/down_icon" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/dp10">
+
+        <TextView
+            android:id="@+id/height_weight_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="身高/体重"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/height_weight_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/height_weight_label"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="170/60"
+            android:textColor="@color/black_33"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/ECG_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_toEndOf="@+id/height_weight_txt"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="心电"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/ECG_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ECG_label"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="心电"
+            android:textColor="@color/black_33"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/ECG_btn"
+            android:layout_width="@dimen/dp80"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_toEndOf="@+id/ECG_label"
+            android:background="@drawable/shape_rectangle_blue90"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="查看"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp16"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/blood_pressure_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/height_weight_label"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="血&#160;&#160;&#160;&#160;压"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/blood_pressure_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/height_weight_txt"
+            android:layout_alignStart="@+id/height_weight_txt"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="140/90"
+            android:textColor="@color/black_33"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/body_fat_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ECG_label"
+            android:layout_alignStart="@+id/ECG_label"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="体脂"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/body_fat_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ECG_txt"
+            android:layout_alignStart="@+id/ECG_txt"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="21.4"
+            android:textColor="@color/black_33"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/temperature_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blood_pressure_label"
+            android:layout_alignStart="@+id/blood_pressure_label"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="体温"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/temperature_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/blood_pressure_txt"
+            android:layout_alignStart="@+id/blood_pressure_txt"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="21.4"
+            android:textColor="@color/black_33"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/spo_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/body_fat_label"
+            android:layout_alignStart="@+id/body_fat_label"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="血氧"
+            android:textColor="@color/gray_99"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            android:id="@+id/spo_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/body_fat_txt"
+            android:layout_alignStart="@+id/body_fat_txt"
+            android:layout_marginTop="@dimen/dp10"
+            android:padding="@dimen/dp10"
+            android:singleLine="true"
+            android:text="21.4"
+            android:textColor="@color/black_33"
+            android:textSize="@dimen/sp16" />
+    </RelativeLayout>
+
+</LinearLayout>

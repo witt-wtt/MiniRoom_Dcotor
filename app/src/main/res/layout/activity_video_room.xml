@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context=".mvpmoudle.ui.VideoRoomActivity">
+    <!-- 视频页画面-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--  本地窗口-->
+        <com.tencent.rtmp.ui.TXCloudVideoView
+            android:id="@+id/location_videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <!-- 远端窗口-->
+        <com.tencent.rtmp.ui.TXCloudVideoView
+            android:id="@+id/remote_videoView"
+            android:layout_width="100dp"
+            android:layout_height="160dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="15dp" />
+
+        <com.witt.doctor_miniroom.view.TimeCountDownTextView
+            android:id="@+id/video_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp18"
+            tools:ignore="RelativeOverlap" />
+
+        <TextView
+            android:id="@+id/over_video_btn"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="@dimen/dp60"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/dp20"
+            android:background="@drawable/shape_circular_red"
+            android:gravity="center"
+            android:text="@string/hang_up_str"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp16" />
+
+        <!--左侧检测功能区域-->
+        <LinearLayout
+            android:id="@+id/video_function_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+            <!--口腔-->
+            <TextView
+                android:id="@+id/mouth_test"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@drawable/shape_circular_blue90"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/mouth_test_str"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16" />
+            <!--听诊-->
+            <TextView
+                android:id="@+id/auscultation_test"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/shape_circular_blue90"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/auscultation_test_str"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16" />
+        </LinearLayout>
+        <!--右侧检测功能区域-->
+        <LinearLayout
+            android:id="@+id/video_function_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+            <!--药品-->
+            <TextView
+                android:id="@+id/drug_test"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@drawable/shape_circular_blue90"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/drug_test_str"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16" />
+            <!--检测-->
+            <TextView
+                android:id="@+id/detection_test"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@drawable/shape_circular_blue90"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/detection_test_str"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16" />
+            <!--患者-->
+            <TextView
+                android:id="@+id/patient_info"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="@drawable/shape_circular_blue90"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/patient_info_str"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp16" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!--底部抽屉-->
+    <LinearLayout
+        android:id="@+id/bottomDrawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_white"
+        android:orientation="vertical"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="0dp"
+        app:layout_behavior="@string/bottom_sheet_behavior" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
