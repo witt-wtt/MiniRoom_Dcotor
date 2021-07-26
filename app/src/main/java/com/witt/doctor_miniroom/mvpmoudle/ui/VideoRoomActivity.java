@@ -106,6 +106,7 @@ public class VideoRoomActivity extends BaseMVPActivity<VideoRoomPresenter> imple
         mTrtcCloud = TRTCCloud.sharedInstance(getApplicationContext());
         mPersenter.enterRoom(mTrtcCloud, mTXCVVLocalPreviewView, mTXCVVRemotePreviewView, true);
 
+
         ClickUtils.applySingleDebouncing(mouthTest, this);
         ClickUtils.applySingleDebouncing(auscultationTest, this);
         ClickUtils.applySingleDebouncing(drugTest, this);
