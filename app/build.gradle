@@ -3,6 +3,28 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('/Users/witt/Desktop/MiniConsultingRoom/Doctor_MiniRoom/key/doctor_miniroom.jks')
+            storePassword '123456'
+            keyAlias 'doctor_miniroom'
+            keyPassword '123456'
+        }
+        release {
+            storeFile file('/Users/witt/Desktop/MiniConsultingRoom/Doctor_MiniRoom/key/doctor_miniroom.jks')
+            storePassword '123456'
+            keyAlias 'doctor_miniroom'
+            keyPassword '123456'
+        }
+    }
+
+    //加载资源
+    Properties properties = new Properties()
+    InputStream inputStream = project.rootProject.file('config.properties').newDataInputStream()
+    properties.load(inputStream)
+    def produce_base_url = properties.getProperty('produce_base_url')
+    def test_base_url = properties.getProperty('test_base_url')
+
     compileSdk rootProject.ext.android["compileSdk"]
     buildToolsVersion rootProject.ext.android["buildToolsVersion"]
 
@@ -12,14 +34,31 @@ android {
         targetSdk rootProject.ext.android["targetSdk"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
-
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME : rootProject.ext.android["applicationId"],
+                JPUSH_APPKEY : "0ce2edef8f36ebe3c2b6aec6", //JPush 上注册的包名对应的 Appkey.
+                JPUSH_CHANNEL : "developer-default", //暂时填写默认值即可.
+        ]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
+            debuggable false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "SERVICE_BASE_URL", "\"${produce_base_url}\""
+        }
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable true
+            /*网络框架,生产环境服务器地址*/ buildConfigField "String", "SERVICE_BASE_URL", "\"${test_base_url}\""
         }
     }
     compileOptions {
@@ -33,13 +72,19 @@ dependencies {
     implementation rootProject.ext.dependencies["material"]
     implementation rootProject.ext.dependencies["constraintlayout"]
     implementation rootProject.ext.dependencies["butterknife"]
-//    implementation 'com.android.support:design:28.0.0'
+    implementation rootProject.ext.dependencies["legacy-support-v4"]
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+    implementation rootProject.ext.dependencies["JRecycleview"]
+    implementation rootProject.ext.dependencies["picasso"]
     //腾讯云实时音视频咨询
     implementation rootProject.ext.dependencies["tencent_TRTC"]
     implementation project(':okhttpUtils')
     testImplementation rootProject.ext.dependencies["junit"]
     androidTestImplementation rootProject.ext.dependencies["androidx_junit"]
     androidTestImplementation rootProject.ext.dependencies["espresso"]
+
+    implementation 'cn.jiguang.sdk:jpush:4.2.8'  // 此处以JPush 4.2.8 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.9.0'  // 此处以JCore 2.9.0 版本为例。
+
 
 }

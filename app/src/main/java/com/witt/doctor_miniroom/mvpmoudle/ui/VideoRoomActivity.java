@@ -26,6 +26,7 @@ import com.witt.doctor_miniroom.adapters.StringAdapter;
 import com.witt.doctor_miniroom.baseview.BaseMVPActivity;
 import com.witt.doctor_miniroom.mvpmoudle.contract.VideoRoomContract;
 import com.witt.doctor_miniroom.mvpmoudle.presenter.VideoRoomPresenter;
+import com.witt.doctor_miniroom.utils.AppConfigUtils;
 import com.witt.doctor_miniroom.utils.TRTCConfigUtils;
 import com.witt.doctor_miniroom.view.TimeCountDownTextView;
 
@@ -72,6 +73,7 @@ public class VideoRoomActivity extends BaseMVPActivity<VideoRoomPresenter> imple
     LinearLayout bottomDrawer_layout;
 
     BottomSheetBehavior<LinearLayout> bottomSheetBehavior;
+    private int room_id;
 
     private String[] titles = {"身高体重", "体温", "体脂", "血压", "血氧", "心电", "口腔", "听诊"};
     private boolean isClick = false;
@@ -101,11 +103,13 @@ public class VideoRoomActivity extends BaseMVPActivity<VideoRoomPresenter> imple
     protected void afterCreate(Bundle savedInstanceState) {
         isShowTitleBarLayout(false);
         showContentView();
-        mPersenter = new VideoRoomPresenter();
-        mPersenter.attachView(this);//p层持有view和model
-        mTrtcCloud = TRTCCloud.sharedInstance(getApplicationContext());
-        mPersenter.enterRoom(mTrtcCloud, mTXCVVLocalPreviewView, mTXCVVRemotePreviewView, true);
-
+        if (getIntent() != null) {
+            room_id = Integer.parseInt(getIntent().getStringExtra(AppConfigUtils.ROOM_ID));
+            mPersenter = new VideoRoomPresenter();
+            mPersenter.attachView(this);//p层持有view和model
+            mTrtcCloud = TRTCCloud.sharedInstance(getApplicationContext());
+            mPersenter.enterRoom(mTrtcCloud, room_id, mTXCVVLocalPreviewView, mTXCVVRemotePreviewView, true);
+        }
 
         ClickUtils.applySingleDebouncing(mouthTest, this);
         ClickUtils.applySingleDebouncing(auscultationTest, this);
@@ -225,4 +229,18 @@ public class VideoRoomActivity extends BaseMVPActivity<VideoRoomPresenter> imple
         }
     }
 
+    @Override
+    public void showLoading(String msg) {
+        showProgressDialog();
+    }
+
+    @Override
+    public void showLoadSuccess(String msg) {
+        showProgressSuccess(msg);
+    }
+
+    @Override
+    public void showLoadFail(String msg) {
+        showProgressFail(msg);
+    }
 }

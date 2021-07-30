@@ -20,7 +20,7 @@ public interface VideoRoomContract {
     }
 
     interface Presenter{
-        void enterRoom(TRTCCloud mTRTCCloud, TXCloudVideoView mTXCVVLocalPreviewView,TXCloudVideoView mTXCVVRemotePreviewView,boolean mIsFrontCamera);
+        void enterRoom(TRTCCloud mTRTCCloud,int room_id, TXCloudVideoView mTXCVVLocalPreviewView,TXCloudVideoView mTXCVVRemotePreviewView,boolean mIsFrontCamera);
         void exitRoom(TRTCCloud mTRTCCloud);
     }
 

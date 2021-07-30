@@ -17,4 +17,6 @@
     <string name="detection_test_str">检测</string>
     <string name="patient_info_str">患者</string>
     <string name="hang_up_str">挂断</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

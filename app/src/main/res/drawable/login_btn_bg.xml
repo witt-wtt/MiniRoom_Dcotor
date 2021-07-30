@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><!--登录界面的编辑框背景-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- 圆角半径-->
+    <corners android:radius="8dp" />
+    <!--矩形的边线 -->
+    <stroke
+        android:width="1px"
+        android:color="#F2F2F2" />
+    <!--矩形填充色-->
+    <gradient
+        android:endColor="#F2F2F2"
+        android:startColor="#F2F2F2" />
+    <!-- 矩形的大小-->
+    <size
+        android:width="40dp"
+        android:height="10dp" />
+</shape>

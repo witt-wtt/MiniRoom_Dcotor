@@ -9,6 +9,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.blankj.utilcode.util.ClickUtils;
+import com.blankj.utilcode.util.ColorUtils;
 import com.witt.doctor_miniroom.R;
 import com.witt.doctor_miniroom.utils.ActivityUtils;
 import com.witt.doctor_miniroom.utils.PermissionListener;
@@ -27,7 +29,6 @@ import com.witt.doctor_miniroom.view.NetworkStateView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -57,7 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetworkS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //固定手机只能竖屏
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(bindLayout());
         unbinder = ButterKnife.bind(this);
@@ -98,6 +99,10 @@ public abstract class BaseActivity extends AppCompatActivity implements NetworkS
         baseTitle_txt = findViewById(R.id.titleBar_title_txt);
         baseBack_btn = findViewById(R.id.titleBar_back_btn);
         titleBar_layout = findViewById(R.id.titleBar_layout);
+        //android6.0以后可以对状态栏文字颜色和图标进行修改
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
     }
 
     /**
@@ -114,7 +119,6 @@ public abstract class BaseActivity extends AppCompatActivity implements NetworkS
      * 获取当前类标签
      */
     protected final String TAG = this.getClass().getSimpleName();
-
 
     /**
      * 设置标题

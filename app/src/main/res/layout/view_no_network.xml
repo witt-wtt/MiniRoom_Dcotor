@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/no_network_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50" />
 
     <TextView
         android:id="@+id/no_network_text"
@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/refresh_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
         android:layout_marginTop="10dp"
         android:clickable="true" />
 

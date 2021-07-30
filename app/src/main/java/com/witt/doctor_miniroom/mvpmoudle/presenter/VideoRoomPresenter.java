@@ -14,6 +14,7 @@ import com.witt.doctor_miniroom.baseview.BasePresenter;
 import com.witt.doctor_miniroom.mvpmoudle.contract.VideoRoomContract;
 import com.witt.doctor_miniroom.mvpmoudle.model.VideoRoomModel;
 import com.witt.doctor_miniroom.mvpmoudle.ui.VideoRoomActivity;
+import com.witt.doctor_miniroom.utils.AppConfigUtils;
 import com.witt.doctor_miniroom.utils.TRTCConfigUtils;
 
 import java.lang.ref.WeakReference;
@@ -33,14 +34,14 @@ public class VideoRoomPresenter extends BasePresenter<VideoRoomContract.View> im
     }
 
     @Override
-    public void enterRoom(TRTCCloud mTRTCCloud, TXCloudVideoView mTXCVVLocalPreviewView, TXCloudVideoView mTXCVVRemotePreviewView, boolean mIsFrontCamera) {
+    public void enterRoom(TRTCCloud mTRTCCloud, int room_id, TXCloudVideoView mTXCVVLocalPreviewView, TXCloudVideoView mTXCVVRemotePreviewView, boolean mIsFrontCamera) {
         mTRTCCloud.setListener(new TRTCCloudImplListener((VideoRoomActivity) mView, mTXCVVRemotePreviewView, mTRTCCloud));
 
         TRTCCloudDef.TRTCParams trtcParams = new TRTCCloudDef.TRTCParams();
         trtcParams.sdkAppId = TRTCConfigUtils.APP_ID;
-        trtcParams.userId = TRTCConfigUtils.USER_ID;
-        trtcParams.roomId = TRTCConfigUtils.ROOM_ID;
-        trtcParams.userSig = TRTCConfigUtils.USER_SIG;
+        trtcParams.userId = AppConfigUtils.getUserId();
+        trtcParams.roomId = room_id;
+        trtcParams.userSig = TRTCConfigUtils.genTestUserSig(AppConfigUtils.getUserId());
 
         mTRTCCloud.startLocalPreview(mIsFrontCamera, mTXCVVLocalPreviewView);
         mTRTCCloud.startLocalAudio(TRTCCloudDef.TRTC_AUDIO_QUALITY_SPEECH);

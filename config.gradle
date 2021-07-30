@@ -21,7 +21,10 @@ ext {
             utilcodeVersion           : '1.30.6',
             butterknifeVersion        : '10.2.3',
             butterknifeCompilerVersion: '10.2.3',
-            TRTCVersion               : 'latest.release',
+            TRTCVersion               : '8.9.10355',
+            legacyVersion             : '1.0.0',
+            JRecycleviewVersion       : '2.0.0',
+            picassoVersion            : '2.5.2',
     ]
     dependencies = [
             'appcompat'           : "androidx.appcompat:appcompat:${androidxVersion["appcompatVersion"]}",
@@ -33,6 +36,9 @@ ext {
             'utilcode'            : "com.blankj:utilcodex:${version["utilcodeVersion"]}",
             'butterknife'         : "com.jakewharton:butterknife:${version["butterknifeVersion"]}",
             'tencent_TRTC'        : "com.tencent.liteav:LiteAVSDK_TRTC:${version["TRTCVersion"]}",
-            'butterknife-compiler': "com.jakewharton:butterknife-compiler:${version["butterknifeCompilerVersion"]}"
+            'butterknife-compiler': "com.jakewharton:butterknife-compiler:${version["butterknifeCompilerVersion"]}",
+            'legacy-support-v4'   : "androidx.legacy:legacy-support-v4:${version["legacyVersion"]}",
+            'JRecycleview'        : "com.github.zincPower:JRecycleview:${version["JRecycleviewVersion"]}",
+            'picasso'             : "com.squareup.picasso:picasso:${version["picassoVersion"]}",
     ]
 }

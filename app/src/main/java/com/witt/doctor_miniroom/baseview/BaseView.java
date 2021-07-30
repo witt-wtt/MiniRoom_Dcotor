@@ -8,5 +8,9 @@ package com.witt.doctor_miniroom.baseview;
  * @Description:
  */
 public interface BaseView {
+    void showLoading(String msg);
 
+    void showLoadSuccess(String msg);
+
+    void showLoadFail(String msg);
 }
